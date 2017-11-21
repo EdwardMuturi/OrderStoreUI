@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     private TextView textViewQueryResult;
     private Button buttonLoadData;
-    private static String CUSTOMER_BASE_PATH= "com.example.sasalog.orderprovider/customer";
+    private static String CUSTOMER_BASE_PATH= "com.example.orderstore.orderprovider/customer";
     public static final Uri CUSTOMER_CONTENT_URI= Uri.parse("content://" + CUSTOMER_BASE_PATH);
 
     private CursorAdapter cursorAdapter;
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         String mSelectionClause= null;
         String[] mSelectionArgs= {""};
 
-        Cursor mCursor=getContentResolver().query(CUSTOMER_CONTENT_URI, mProjection, mSelectionClause, mSelectionArgs, "ASC");
+        Cursor mCursor=getContentResolver().query(CUSTOMER_CONTENT_URI, mProjection, mSelectionClause, mSelectionArgs, null);
 
         String[] from={CUSTOMER_CONTENT_URI + "/" + "firstName"};
         int[] to= {android.R.id.text1};

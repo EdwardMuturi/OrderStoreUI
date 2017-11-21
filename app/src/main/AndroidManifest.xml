@@ -2,8 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.sasalog.orderstoreui">
     
-    <uses-permission android:name="android.permission.READ_ORDERSTORE" />
-    <uses-permission android:name="android.permission.WRITE_ORDERSTORE" />
+    <uses-permission android:name="com.example.orderstore.orderprovider.READ_CONTENT" />
+    <uses-permission android:name="android.permission.WRITE_com.example.orderstore.orderprovider"
+        />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
