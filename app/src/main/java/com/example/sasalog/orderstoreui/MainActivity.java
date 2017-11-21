@@ -16,17 +16,14 @@ import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
+import static com.example.sasalog.orderstoreui.ContentProviderContract.CUSTOMER_CONTENT_URI;
+
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor>, View.OnClickListener{
 
     private static  String TAG= "ContentProviderDemo";
     private int MY_PERMISSIONS_REQUEST_READ_ORDERSTORE= 20;
 
     private boolean firstTimeLoaded= false;
-
-    private TextView textViewQueryResult;
-    private Button buttonLoadData;
-    private static String CUSTOMER_BASE_PATH= "com.example.orderstore.orderprovider/Customers";
-    public static final Uri CUSTOMER_CONTENT_URI= Uri.parse("content://" + CUSTOMER_BASE_PATH);
 
     private CursorAdapter cursorAdapter;
 
