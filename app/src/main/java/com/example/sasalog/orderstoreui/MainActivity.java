@@ -6,10 +6,14 @@ import android.content.Loader;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.RemoteException;
+import android.provider.BaseColumns;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CursorAdapter;
+import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor>, View.OnClickListener{
@@ -21,22 +25,29 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     private TextView textViewQueryResult;
     private Button buttonLoadData;
+    private static String CUSTOMER_BASE_PATH= "com.example.sasalog.orderprovider/customer";
+    public static final Uri CUSTOMER_CONTENT_URI= Uri.parse("content://" + CUSTOMER_BASE_PATH);
 
+    private CursorAdapter cursorAdapter;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        String[] mProjection={CUSTOMER_BASE_PATH + "/" + BaseColumns._ID, CUSTOMER_BASE_PATH + "/" +"firstName"};
+        String mSelectionClause= null;
+        String[] mSelectionArgs= {""};
 
-        Uri uri= Uri.parse("content://com.example.orderstore.orderprovider");
-        ContentProviderClient contentResolver= getContentResolver().acquireContentProviderClient(uri);
-        try {
-            Cursor cursor;
-            cursor = contentResolver.query(uri,null, null, null, null);
-        } catch (RemoteException e) {
-            e.printStackTrace();
-        }
+        Cursor mCursor=getContentResolver().query(CUSTOMER_CONTENT_URI, mProjection, mSelectionClause, mSelectionArgs, "ASC");
+
+        String[] from={CUSTOMER_CONTENT_URI + "/" + "firstName"};
+        int[] to= {android.R.id.text1};
+        cursorAdapter= new SimpleCursorAdapter(this, android.R.layout.simple_list_item_1, mCursor, from, to, 0);
+
+        ListView list= (ListView) findViewById(android.R.id.list);
+        list.setAdapter(cursorAdapter);
+
     }
 
     @Override
