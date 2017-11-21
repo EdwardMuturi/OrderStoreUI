@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     private TextView textViewQueryResult;
     private Button buttonLoadData;
-    private static String CUSTOMER_BASE_PATH= "com.example.orderstore.orderprovider/customer";
+    private static String CUSTOMER_BASE_PATH= "com.example.orderstore.orderprovider/Customers";
     public static final Uri CUSTOMER_CONTENT_URI= Uri.parse("content://" + CUSTOMER_BASE_PATH);
 
     private CursorAdapter cursorAdapter;
@@ -35,13 +35,13 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        String[] mProjection={CUSTOMER_BASE_PATH + "/" + BaseColumns._ID, CUSTOMER_BASE_PATH + "/" +"firstName"};
+        String[] mProjection={BaseColumns._ID,  "firstName"};
         String mSelectionClause= null;
-        String[] mSelectionArgs= {""};
+        String[] mSelectionArgs= null;
 
         Cursor mCursor=getContentResolver().query(CUSTOMER_CONTENT_URI, mProjection, mSelectionClause, mSelectionArgs, null);
 
-        String[] from={CUSTOMER_CONTENT_URI + "/" + "firstName"};
+        String[] from={"firstName"};
         int[] to= {android.R.id.text1};
         cursorAdapter= new SimpleCursorAdapter(this, android.R.layout.simple_list_item_1, mCursor, from, to, 0);
 
