@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.sasalog.orderstoreui">
-    
+
     <uses-permission android:name="com.example.orderstore.orderprovider.READ_CONTENT" />
-    <uses-permission android:name="android.permission.WRITE_com.example.orderstore.orderprovider"
-        />
+    <uses-permission android:name="com.example.orderstore.orderprovider.WRITE_CONTENT" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,13 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".MainActivity" />
 
         <receiver android:name=".OrderStoreWidget">
             <intent-filter>
@@ -29,6 +23,24 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/order_store_widget_info" />
         </receiver>
+
+        <activity android:name=".MenuActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ProductsActivity" />
+        <activity android:name=".OrdersActivity" />
+        <activity android:name=".OrderListActivity" />
+        <activity
+            android:name=".EditCustomerActivity"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.sasalog.orderstoreui.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

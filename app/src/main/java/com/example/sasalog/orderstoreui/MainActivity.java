@@ -1,22 +1,18 @@
 package com.example.sasalog.orderstoreui;
 
 import android.app.LoaderManager;
-import android.content.ContentProviderClient;
+import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
-import android.net.Uri;
-import android.os.RemoteException;
 import android.provider.BaseColumns;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CursorAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
-import android.widget.TextView;
 
-import static com.example.sasalog.orderstoreui.ContentProviderContract.CUSTOMER_CONTENT_URI;
+import static com.example.sasalog.orderstoreui.OrderStoreUIContract.CUSTOMER_CONTENT_URI;
 
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor>, View.OnClickListener{
 
@@ -65,5 +61,10 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     @Override
     public void onClick(View view) {
 
+    }
+
+    public void editCustomer(View view) {
+        Intent intent= new Intent(this, EditCustomerActivity.class);
+        startActivity(intent);
     }
 }

@@ -3,4 +3,9 @@
     <string name="view_customer_text">Edward Muturi</string>
     <string name="add_widget">Add widget</string>
     <string name="btn_delete_customer_text">Delete Customer</string>
+    <string name="prompt_customer_name">Customer Name</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_delete_customer">Delete Customer</string>
+    <string name="customer_deleted_prompt">Customer Deleted</string>
+    <string name="customer_updated_prompt">Customer Updated</string>
 </resources>

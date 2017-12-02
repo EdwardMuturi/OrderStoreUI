@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.sasalog.orderstoreui.MenuActivity">
+
+    <TextView
+        android:layout_width="130sp"
+        android:layout_marginRight="10sp"
+        android:id="@+id/txt_from_login"
+        android:textSize="7pt"
+        android:hint="User name"
+        android:textAlignment="center"
+        android:layout_height="50sp"
+        android:layout_gravity="end"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="70sp"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
+        android:layout_marginTop="90sp"
+        android:text="Customers"
+        android:onClick="openCustomers"
+        android:id="@+id/btn_open_customers"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="70sp"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
+        android:layout_marginTop="10sp"
+        android:layout_below="@id/btn_open_customers"
+        android:text="Products"
+        android:onClick="openProducts"
+        android:id="@+id/btn_open_products"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="70sp"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
+        android:layout_marginTop="10sp"
+        android:layout_below="@id/btn_open_products"
+        android:text="Orders"
+        android:onClick="openOrders"
+        android:id="@+id/btn_open_orders"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="70sp"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
+        android:layout_marginTop="10sp"
+        android:layout_below="@id/btn_open_orders"
+        android:text="Orders List"
+        android:onClick="openOrderList"
+        android:id="@+id/btn_open_order_list"
+        />
+
+</LinearLayout>
